@@ -1,12 +1,14 @@
+<br/>
+<br/>
 <div class="container">
     <div [hidden]="submitted">
-      <h1>Login</h1>
+      <!-- <h1>Login</h1> -->
       <form #userForm="ngForm">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" class="form-control" id="username"
                  required
-                 [(ngModel)]="model.userName" name="name"
+                 [(ngModel)]="user.userName" name="name"
                  #name="ngModel">
           <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger">
@@ -17,7 +19,7 @@
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password"
-                 [(ngModel)]="model.password" name="password">
+                 [(ngModel)]="user.password" name="password">
         </div>
   
   

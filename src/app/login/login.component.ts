@@ -13,12 +13,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  powers = ['Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer'];
-
   submitted = false;
 
-  model = new User(1, "", "");
+  user = new User("", "", "", "", "", "");
 
   
 }
