@@ -30,3 +30,11 @@ body {
     color: #8b0000;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.postBar {
+    background-color: #fca;
+}
+
+.post {
+    background-color: #fff;
+}

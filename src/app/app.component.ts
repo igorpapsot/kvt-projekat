@@ -13,10 +13,11 @@ export class AppComponent {
   }
 
   public showLogin = false;
-
   public showRegister = false;
+  public showHome = true;
 
   homeClick(){
+    this.showHome = true;
     this.showLogin = false;
     this.showRegister = false;
   }
@@ -24,11 +25,13 @@ export class AppComponent {
   signUpClick(){
     this.showRegister = true;
     this.showLogin = false;
+    this.showHome = false;
   }
 
   signInClick(){
     this.showLogin = true;
     this.showRegister = false;
+    this.showHome = false;
   }
 
 }

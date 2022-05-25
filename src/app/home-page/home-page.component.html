@@ -1,0 +1,26 @@
+<br/>
+<div class="row" *ngFor="let post of posts; index as i; first as isFirst">
+    <div class="col-md-10 offset-md-1">
+        <div class="card post" style="border-color: #8b0000; border-radius: 0%;">     
+            <div class="card-header-sm postBar">
+                &nbsp; Post title
+            </div>
+            <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-success" style="margin: 5px; margin-left: 20px;">▲</button>
+                    <br/>
+                    <button type="submit" class="btn btn-danger" style="margin: 5px; margin-left: 20px;">▼</button>
+                </div>
+                <div class="col-md-11">
+                    <img class="card-img-bottom" src="/assets/img/Image.jpg" alt="Post image" style="max-height: 100px;">
+                </div>
+            </div>
+            
+        </div>
+        <br/>
+    </div>
+</div>

@@ -17,5 +17,4 @@ export class LoginComponent implements OnInit {
 
   user = new User("", "", "", "", "", "");
 
-  
 }
