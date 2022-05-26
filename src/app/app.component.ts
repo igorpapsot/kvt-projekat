@@ -12,26 +12,37 @@ export class AppComponent {
 
   }
 
+  public showHome = true;
   public showLogin = false;
   public showRegister = false;
-  public showHome = true;
+  public showCommunities = false;
 
   homeClick(){
     this.showHome = true;
     this.showLogin = false;
     this.showRegister = false;
+    this.showCommunities = false;
   }
 
   signUpClick(){
     this.showRegister = true;
     this.showLogin = false;
     this.showHome = false;
+    this.showCommunities = false;
   }
 
   signInClick(){
     this.showLogin = true;
     this.showRegister = false;
     this.showHome = false;
+    this.showCommunities = false;
+  }
+
+  communitiesClick() {
+    this.showCommunities = true;
+    this.showHome = false;
+    this.showLogin = false;
+    this.showRegister = false;
   }
 
 }

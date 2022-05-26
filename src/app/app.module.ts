@@ -8,13 +8,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CommunitiesComponent } from './communities/communities.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomePageComponent
+    HomePageComponent,
+    CommunitiesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg green rounded-bottom">
     <div class="nav mr-auto">
       <a class="navbar-brand reddit" href="#" (click)="homeClick()">Reddit</a>
+      <a class="nav-item nav-link white" href="#" (click)="communitiesClick()">Communities</a>
       <a class="nav-item nav-link white" href="#" (click)="signUpClick()">Sign up</a>
       <a class="nav-item nav-link white" href="#" (click)="signInClick()">Sign in</a>
     </div>
@@ -8,3 +9,4 @@
 <app-register *ngIf="showRegister"></app-register>
 <app-login *ngIf="showLogin"></app-login>
 <app-home-page *ngIf="showHome"></app-home-page>
+<app-communities *ngIf="showCommunities"></app-communities>
