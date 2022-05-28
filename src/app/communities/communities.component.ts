@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-communities',
@@ -7,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  public readonly ROOT_URL = 'http://localhost:8080/';
+
+  communities : any[] = [];
 
   ngOnInit(): void {
+    this.http.get<any[]>(this.ROOT_URL + "communities").subscribe(data => {
+      this.communities = data;
+  })
   }
+  
 
-  public communities: string[] = ["1", "2", "3"];
 }

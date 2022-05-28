@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CommunitiesComponent } from './communities/communities.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CommunitiesComponent } from './communities/communities.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
