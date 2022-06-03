@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,18 +11,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HomePageComponent implements OnInit {
 
-  public readonly ROOT_URL = 'http://localhost:8080/';
-
   posts : any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private postService : PostService) { }
+
+  getPosts() {
+    this.posts = this.postService.getPosts();
+  }
 
   ngOnInit(): void {
-
-    this.http.get<any[]>(this.ROOT_URL + "posts").subscribe(data => {
-        this.posts = data;
-    })
-    
+    this.getPosts();
   }
   
 }
