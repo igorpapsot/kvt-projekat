@@ -3,6 +3,7 @@ import { AppComponent } from '../app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PostService } from '../services/post.service';
+import { PostComponent } from '../post/post.component';
 
 @Component({
   selector: 'app-home-page',

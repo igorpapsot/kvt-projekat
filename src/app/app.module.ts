@@ -10,6 +10,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CommunitiesComponent } from './communities/communities.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
-    CommunitiesComponent
+    CommunitiesComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
