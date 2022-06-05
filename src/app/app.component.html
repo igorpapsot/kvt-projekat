@@ -6,7 +6,7 @@
       <a class="nav-item nav-link white" href="#" (click)="signInClick()">Sign in</a>
     </div>
 </nav>
-<app-register *ngIf="showRegister"></app-register>
+<app-register *ngIf="showRegister" (login)="signInClick()"></app-register>
 <app-login *ngIf="showLogin"></app-login>
 <app-home-page *ngIf="showHome"></app-home-page>
 <app-communities *ngIf="showCommunities" ></app-communities>

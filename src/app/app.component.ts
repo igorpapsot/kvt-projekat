@@ -18,28 +18,28 @@ export class AppComponent {
   public showRegister = false;
   public showCommunities = false;
 
-  homeClick(){
+  public homeClick(){
     this.showHome = true;
     this.showLogin = false;
     this.showRegister = false;
     this.showCommunities = false;
   }
 
-  signUpClick(){
+  public signUpClick(){
     this.showRegister = true;
     this.showLogin = false;
     this.showHome = false;
     this.showCommunities = false;
   }
 
-  signInClick(){
+  public signInClick(){
     this.showLogin = true;
     this.showRegister = false;
     this.showHome = false;
     this.showCommunities = false;
   }
 
-  communitiesClick() {
+  public communitiesClick() {
     this.showCommunities = true;
     this.showHome = false;
     this.showLogin = false;

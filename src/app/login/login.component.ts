@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +15,6 @@ export class LoginComponent implements OnInit {
 
   submitted = false;
 
-  user = new User("", "", "", "", "", "");
+  user = new User();
 
 }
