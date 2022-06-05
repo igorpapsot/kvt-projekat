@@ -1,9 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PostService } from '../services/post.service';
-import { PostComponent } from '../post/post.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home-page',
@@ -14,7 +11,7 @@ export class HomePageComponent implements OnInit {
 
   posts : any[] = [];
 
-  constructor(private postService : PostService) { }
+  constructor(private postService : PostService, private modalService: NgbModal) { }
 
   getPosts() {
     this.posts = this.postService.getPosts();

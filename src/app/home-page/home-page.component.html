@@ -1,35 +1,7 @@
 <br/>
+<app-create-post-popup></app-create-post-popup>
+<br/>
+
 <div *ngFor="let post of posts; index as i; first as isFirst">
     <app-post [title] = "post.title" [communityName] = "post.community.name" [text] = "post.text"></app-post>
-    <!-- <div class="col-md-10 offset-md-1">
-        <div class="card post" style="border-color: #8b0000; border-radius: 0%;">     
-            <div class="card-header-sm postBar">
-                <div class="row">
-                    <div class="col-md-10">
-                        &nbsp; {{post.title}}
-                    </div>
-                    <div class="col">
-                        <a href="#">{{post.community.name}}</a>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{post.text}}</p>
-            </div>
-
-            <div class="row">
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-success" style="margin: 5px; margin-left: 20px;">▲</button>
-                    <br/>
-                    <button type="submit" class="btn btn-danger" style="margin: 5px; margin-left: 20px;">▼</button>
-                </div>
-                <div class="col-md-11">
-                    <img class="card-img-bottom" src="/assets/img/Image.jpg" alt="Post image" style="max-height: 100px;">
-                </div>
-            </div>
-            
-        </div>
-        <br/>
-    </div> -->
 </div>
