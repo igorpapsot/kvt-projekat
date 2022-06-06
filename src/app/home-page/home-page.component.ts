@@ -20,5 +20,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.getPosts();
   }
+
+  ngAfterViewInit() {
+    this.getPosts();
+  }
   
 }
