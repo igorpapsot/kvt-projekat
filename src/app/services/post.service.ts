@@ -63,4 +63,17 @@ export class PostService {
     console.log(environment.ROOT_URL +"posts/" + id +"/downVotes");
   }
 
+  delete(id : number) {
+    this.http.delete(environment.ROOT_URL + "posts/" + id)
+    .subscribe(() => this.status = 'Delete successful');
+    console.log(this.status);
+  }
+
+  update() {
+    // this.http.put(environment.ROOT_URL + "communities/" + id)
+    // .subscribe(() => this.status = 'Delete successful');
+    // console.log(this.status);
+  }
+
+  status : string = "";
 }

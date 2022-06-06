@@ -12,6 +12,7 @@ import { CommunitiesComponent } from './communities/communities.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
 import { CreatePostPopupComponent } from './create-post-popup/create-post-popup.component';
+import { CommunityComponent } from './community/community.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CreatePostPopupComponent } from './create-post-popup/create-post-popup.
     HomePageComponent,
     CommunitiesComponent,
     PostComponent,
-    CreatePostPopupComponent
+    CreatePostPopupComponent,
+    CommunityComponent
   ],
   imports: [
     BrowserModule,

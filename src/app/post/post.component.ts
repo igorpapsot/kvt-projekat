@@ -37,4 +37,14 @@ export class PostComponent implements OnInit {
     this.postService.downVote(this.id);
   }
 
+  delete() {
+    this.postService.delete(this.id);
+  }
+
+  upDate() {
+
+  }
+ 
+
+
 }

@@ -1,14 +1,4 @@
 <br/>
-<div class="row" *ngFor="let community of communities; index as i; first as isFirst">
-    <div class="col-md-10 offset-md-1">
-        <div class="card post" style="border-color: #8b0000; border-radius: 0%;">     
-            <div class="card-header-sm postBar">
-                &nbsp; <a href="#">{{community.name}}</a>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{community.description}}</p>
-            </div>
-        </div>
-        <br/>
-    </div>
+<div *ngFor="let community of communities; index as i; first as isFirst">
+    <app-community [community] = "community"></app-community>
 </div>
