@@ -6,7 +6,7 @@ export class Post {
 
     text: string;
     title: string;
-    image: string;
+    imagePath: string;
     user: User;
     flair: Flair;
     community: Community;

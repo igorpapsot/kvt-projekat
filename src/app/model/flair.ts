@@ -1,6 +1,7 @@
 export class Flair {
     
-    id : number;
+    id: number;
+    name: string;
 
     constructor() {
         

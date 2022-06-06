@@ -45,14 +45,16 @@
         <div class="row">
           <div class="col-md-10 offset-md-1">
                 <div class="form-group">
-                      <label for="flair">Flair</label>
-                      <input type="text" class="form-control" id="flair" required
-                            [(ngModel)]="post.flair" name="flair"
-                            #flair="ngModel">
-                      <div [hidden]="flair.valid || !flair.touched"
-                            class="alert alert-danger">
-                            Flair is required
-                      </div>
+                  <label for="flair">Flair</label>
+                  <select class="form-control" id="flair" required
+                        [(ngModel)]="flair.id" name="flairId"
+                        #flairId="ngModel">
+                        <option *ngFor="let flair of flairs; index as i; first as isFirst " [value] = "flair.id">{{flair.name}}</option>
+                  </select>
+                  <div [hidden]="flairId.valid || !flairId.touched"
+                        class="alert alert-danger">
+                        Flair is required
+                  </div>
                 </div>
           </div>
         </div>
@@ -60,14 +62,16 @@
         <div class="row">
           <div class="col-md-10 offset-md-1">
                 <div class="form-group">
-                      <label for="community">Community</label>
-                      <input type="text" class="form-control" id="community" required
-                            [(ngModel)]="post.community" name="community"
-                            #community="ngModel">
-                      <div [hidden]="community.valid || !community.touched"
-                            class="alert alert-danger">
-                            Community is required
-                      </div>
+                        <label for="community">Community</label>
+                        <select class="form-control" id="community" required
+                              [(ngModel)]="community.id" name="communityId"
+                              #communityId="ngModel">
+                              <option *ngFor="let community of communities; index as i; first as isFirst" [value] = "community.id">{{community.name}}</option>
+                        </select>
+                        <div [hidden]="communityId.valid || !communityId.touched"
+                              class="alert alert-danger">
+                              Community is required
+                        </div>
                 </div>
           </div>
         </div>
@@ -77,7 +81,7 @@
                 <div class="form-group">
                       <label for="image">Image</label>
                       <input type="text" class="form-control" id="image" required
-                            [(ngModel)]="post.image" name="image"
+                            [(ngModel)]="post.imagePath" name="image"
                             #image="ngModel">
                       <div [hidden]="image.valid || !image.touched"
                             class="alert alert-danger">
@@ -89,7 +93,7 @@
 
         <div class="row">
           <div class="col-md-10 offset-md-1">
-                <button type="submit" class="btn btn-success btn-block" [disabled]="!postForm.form.valid" >Create</button>
+                <button type="submit" class="btn btn-success btn-block" [disabled]="!postForm.form.valid" (click)="createPost() ; modal.dismiss('Close click');">Create</button>
           </div>
         </div>
 
