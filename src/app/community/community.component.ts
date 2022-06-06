@@ -21,4 +21,10 @@ export class CommunityComponent implements OnInit {
     this.communityService.deleteCommunity(this.community.id)
   }
 
+  suspend() {
+    this.communityService.suspendCommunity(this.community.id, this.reason);
+  }
+
+  reason : string = "";
+
 }

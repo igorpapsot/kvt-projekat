@@ -32,5 +32,13 @@ export class CommunityService {
     console.log(this.status);
   }
 
+  suspendCommunity(id : number, reason : String) {
+    const body = { suspendedReason : reason };
+    this.http.put<any>(environment.ROOT_URL + "communities/" + id + "/suspend", body)
+    .subscribe(() => this.suspendStatus = 'Delete successful');
+    console.log(this.suspendStatus);
+  }
+
+  suspendStatus : string = ""
   status : string = "";
 }
