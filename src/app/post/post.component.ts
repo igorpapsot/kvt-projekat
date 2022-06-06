@@ -9,7 +9,7 @@ import { PostService } from '../services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postService : PostService) { }
 
   @Input()
   public title : string = "";
@@ -23,7 +23,18 @@ export class PostComponent implements OnInit {
   @Input()
   public flairName : string = "";
 
+  @Input()
+  public id : number = 0;
+
   ngOnInit(): void {
+  }
+
+  upVote() {
+    this.postService.upVote(this.id);
+  }
+
+  downVote() {
+    this.postService.downVote(this.id);
   }
 
 }

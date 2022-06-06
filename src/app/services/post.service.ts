@@ -36,7 +36,31 @@ export class PostService {
         console.error(err);
         throw err;
       }) 
-      )
-    }
+    )
+  }
+
+  upVote(id : number) : any{
+    //ne radi zbog jwta
+    this.http.post(environment.ROOT_URL +"posts/" + id +"/upVotes", this.httpOptions)
+    .pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      }) 
+    )
+    console.log(environment.ROOT_URL + "posts/" + id +"/upVotes"); 
+  }
+
+  downVote(id : number) {
+    //ne radi zbog jwta
+    this.http.post(environment.ROOT_URL + "posts/" + id +"/downVotes", this.httpOptions)
+    .pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      }) 
+    )
+    console.log(environment.ROOT_URL +"posts/" + id +"/downVotes");
+  }
 
 }
