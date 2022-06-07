@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { catchError } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
+import { Community } from '../model/community';
+import { Post } from '../model/post';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +39,18 @@ export class CommunityService {
     this.http.put<any>(environment.ROOT_URL + "communities/" + id + "/suspend", body)
     .subscribe(() => this.suspendStatus = 'Delete successful');
     console.log(this.suspendStatus);
+  }
+
+  post(community : Community) : Observable<Community>{
+    const body=JSON.stringify(community);
+    console.log(body)
+    return this.http.post<Community>(environment.ROOT_URL + "communities", body, this.httpOptions)
+    .pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      }) 
+    )
   }
 
   suspendStatus : string = ""
