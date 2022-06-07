@@ -23,6 +23,8 @@
                 <div class="col-md-1">
                     <button type="submit" class="btn btn-success" style="margin: 5px; margin-left: 20px;" (click)="upVote()">▲</button>
                     <br/>
+                    <span class="badge badge-white" style="margin-left: 33px;">{{post.karma}}</span>
+                    <br/>
                     <button type="submit" class="btn btn-danger" style="margin: 5px; margin-left: 20px;" (click)="downVote()">▼</button>
                 </div>
                 <div class="col-md-11">
