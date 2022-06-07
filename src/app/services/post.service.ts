@@ -69,11 +69,16 @@ export class PostService {
     console.log(this.status);
   }
 
-  update() {
-    // this.http.put(environment.ROOT_URL + "communities/" + id)
-    // .subscribe(() => this.status = 'Delete successful');
-    // console.log(this.status);
+  update(post : Post) : Observable<Post>{
+    const body=JSON.stringify(post);
+    console.log(body)
+    return this.http.put<Post>(environment.ROOT_URL + "posts/" + post.id, body, this.httpOptions)
+    .pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      }) 
+    )
   }
-
   status : string = "";
 }

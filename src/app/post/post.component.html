@@ -4,19 +4,19 @@
             <div class="card-header-sm postBar">
                 <div class="row">
                     <div class="col-md-9">
-                        &nbsp; {{title}}
+                        &nbsp; {{post.title}}
                     </div>
                     <div class="col">
-                        <a href="#">{{communityName}}</a>
+                        <a href="#">{{community.name}}</a>
                     </div>
                     <div class="col">
-                        <span class="badge badge-success" style="margin-bottom: 6px;">{{flairName}}</span>
+                        <span class="badge badge-success" style="margin-bottom: 6px;">{{flair.name}}</span>
                     </div>
                 </div>
                 
             </div>
             <div class="card-body">
-                <p class="card-text">{{text}}</p>
+                <p class="card-text">{{post.text}}</p>
             </div>
     
             <div class="row">
@@ -31,8 +31,8 @@
             </div>
 
             <div class="row">
-                <div class="col-md-1 offset-md-9">
-                    <app-update-post-popup></app-update-post-popup>
+                <div class="col-md-2 offset-md-8">
+                    <app-update-post-popup [post] = "post" [flair] = "flair" [community] = "community"></app-update-post-popup>
                 </div>
                 <div class="col-md-1">
                     <button type="submit" class="btn btn-danger btn-sm" style="margin: 5px;" (click)="delete()">Delete</button>

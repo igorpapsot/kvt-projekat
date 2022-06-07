@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-md-3 offset-md-1">
-        <button type="submit" class="btn btn-success" (click)="openLg(content)">Create post</button>
+        <button type="submit" class="btn btn-success btn-sm" style="margin: 5px;" (click)="openLg(content)">Edit post</button>
     </div>
   </div>
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Create post</h4>
+      <h4 class="modal-title">Edit post</h4>
       <button type="button" class="btn" (click)="modal.dismiss('Close click')">X</button>
     </div>
     <div class="modal-body">
@@ -93,7 +93,7 @@
   
           <div class="row">
             <div class="col-md-10 offset-md-1">
-                  <button type="submit" class="btn btn-success btn-block" [disabled]="!postForm.form.valid" (click)="createPost() ; modal.dismiss('Close click');">Create</button>
+                  <button type="submit" class="btn btn-success btn-block" [disabled]="!postForm.form.valid" (click)="editPost() ; modal.dismiss('Close click');">Edit</button>
             </div>
           </div>
   

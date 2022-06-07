@@ -4,6 +4,7 @@ import { User } from "./user";
 
 export class Post {
 
+    id: number;
     text: string;
     title: string;
     imagePath: string;

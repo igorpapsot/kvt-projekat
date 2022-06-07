@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Community } from '../model/community';
 import { Flair } from '../model/flair';
@@ -49,13 +49,28 @@ export class UpdatePostPopupComponent implements OnInit {
     
   }
 
+  editPost() {
+    this.user.id = 1;
+    this.post.user = this.user;
+    this.post.community = this.community;
+    this.post.flair = this.flair;
+
+    this.postService.update(this.post)
+    .subscribe(data => {
+      console.log(data)
+    })
+  }
+
+  @Input()
+  post: Post = new Post();
+
+  @Input()
   flair: Flair = new Flair();
 
+  @Input()
   community: Community = new Community();
 
   user: User = new User();
-
-  post: Post = new Post();
 
   communities : any[] = [];
 
