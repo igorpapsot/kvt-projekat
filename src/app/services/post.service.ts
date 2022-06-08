@@ -16,7 +16,8 @@ export class PostService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      //Authorization: 'my-auth-token'
+      'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+      "Access-Control-Allow-Methods": 'GET,POST,PATCH,DELETE,PUT,OPTIONS'
     })
   };
 
@@ -30,6 +31,7 @@ export class PostService {
   post(post : Post) : Observable<Post>{
     const body=JSON.stringify(post);
     console.log(body)
+    console.log(this.httpOptions);
     return this.http.post<Post>(environment.ROOT_URL + "posts", body, this.httpOptions)
     .pipe(
       catchError((err) => {
@@ -39,32 +41,24 @@ export class PostService {
     )
   }
 
-  upVote(id : number) : any{
+  upVote(id : number){
     //ne radi zbog jwta
-    this.http.post(environment.ROOT_URL +"posts/" + id +"/upVotes", this.httpOptions)
-    .pipe(
-      catchError((err) => {
-        console.error(err);
-        throw err;
-      }) 
-    )
+    this.http.post(environment.ROOT_URL +"posts/" + id +"/upVotes", null,  this.httpOptions)
+    .subscribe(() => this.status = 'Downvote successful');
+    console.log(this.status);
     console.log(environment.ROOT_URL + "posts/" + id +"/upVotes"); 
   }
 
   downVote(id : number) {
     //ne radi zbog jwta
-    this.http.post(environment.ROOT_URL + "posts/" + id +"/downVotes", this.httpOptions)
-    .pipe(
-      catchError((err) => {
-        console.error(err);
-        throw err;
-      }) 
-    )
+    this.http.post(environment.ROOT_URL + "posts/" + id +"/downVotes", null, this.httpOptions)
+    .subscribe(() => this.status = 'Downvote successful');
+    console.log(this.status);
     console.log(environment.ROOT_URL +"posts/" + id +"/downVotes");
   }
 
   delete(id : number) {
-    this.http.delete(environment.ROOT_URL + "posts/" + id)
+    this.http.delete(environment.ROOT_URL + "posts/" + id, this.httpOptions)
     .subscribe(() => this.status = 'Delete successful');
     console.log(this.status);
   }

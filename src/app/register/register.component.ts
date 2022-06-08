@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
-import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +10,7 @@ import { AppComponent } from '../app.component';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService : UserService) { }
-
-  @Output() login = new EventEmitter<string>();
+  constructor(private userService : UserService, private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +20,7 @@ export class RegisterComponent implements OnInit {
     .subscribe(data => {
       console.log(data)
     })
-    this.login.next('')
+    this.router.navigate(['/login']);
   }
 
   user = new User();

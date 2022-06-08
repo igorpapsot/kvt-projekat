@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.user)
     .subscribe(jwt => {
       console.log(jwt)
-      localStorage.setItem('token', jwt.jwt);
+      sessionStorage.clear;
+      sessionStorage.setItem('token', jwt.jwt);
     });
   }
 
