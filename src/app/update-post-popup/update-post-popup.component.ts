@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 import { Community } from '../model/community';
 import { Flair } from '../model/flair';
 import { Post } from '../model/post';
@@ -72,7 +73,7 @@ export class UpdatePostPopupComponent implements OnInit {
 
   user: User = new User();
 
-  communities : any[] = [];
+  communities! : Observable<any[]>;
 
   flairs : any[] = [];
 

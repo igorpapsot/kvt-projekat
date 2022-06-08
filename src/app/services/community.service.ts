@@ -12,39 +12,40 @@ export class CommunityService {
 
   constructor(private http : HttpClient) { }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      //Authorization: 'my-auth-token'
-    })
-  };
+  httpOptions() {
+    return  {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        "Access-Control-Allow-Methods": 'GET,POST,PATCH,DELETE,PUT,OPTIONS'
+      })
+    };
+  }
 
-  communities : any[] = [];
+  communities! : Observable<any[]>;
 
-  getCommunities() : any[] {
-    this.http.get<any[]>(environment.ROOT_URL + "communities").subscribe(data => {
-      this.communities = data;
-    })
-    return this.communities;
+  getCommunities() : Observable<any[]> {
+    return this.http.get<any[]>(environment.ROOT_URL + "communities");
   }
 
   deleteCommunity(id : number) {
-    this.http.delete(environment.ROOT_URL + "communities/" + id)
+    this.http.delete(environment.ROOT_URL + "communities/" + id, this.httpOptions())
     .subscribe(() => this.status = 'Delete successful');
     console.log(this.status);
   }
 
   suspendCommunity(id : number, reason : String) {
-    const body = { suspendedReason : reason };
-    this.http.put<any>(environment.ROOT_URL + "communities/" + id + "/suspend", body)
+    const body = { 'suspendedReason' : ' + reason + '};
+    this.http.put<any>(environment.ROOT_URL + "communities/" + id + "/suspend", body, this.httpOptions())
     .subscribe(() => this.suspendStatus = 'Delete successful');
     console.log(this.suspendStatus);
+    console.log(body);
   }
 
   post(community : Community) : Observable<Community>{
     const body=JSON.stringify(community);
     console.log(body)
-    return this.http.post<Community>(environment.ROOT_URL + "communities", body, this.httpOptions)
+    return this.http.post<Community>(environment.ROOT_URL + "communities", body, this.httpOptions())
     .pipe(
       catchError((err) => {
         console.error(err);

@@ -66,7 +66,7 @@
                         <select class="form-control" id="community" required
                               [(ngModel)]="community.id" name="communityId"
                               #communityId="ngModel">
-                              <option *ngFor="let community of communities; index as i; first as isFirst" [value] = "community.id">{{community.name}}</option>
+                              <option *ngFor="let community of communities | async; index as i; first as isFirst" [value] = "community.id">{{community.name}}</option>
                         </select>
                         <div [hidden]="communityId.valid || !communityId.touched"
                               class="alert alert-danger">

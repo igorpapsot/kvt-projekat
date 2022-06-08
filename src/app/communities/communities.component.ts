@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CommunityService } from '../services/community.service';
 
 
@@ -11,7 +12,7 @@ export class CommunitiesComponent implements OnInit {
 
   constructor(private communityService : CommunityService) { }
 
-  communities : any[] = [];
+  communities!: Observable<any[]>;
 
   getCommunites() {
     this.communities = this.communityService.getCommunities();

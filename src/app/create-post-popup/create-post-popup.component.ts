@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 import { Community } from '../model/community';
 import { Flair } from '../model/flair';
 import { Post } from '../model/post';
@@ -57,7 +58,7 @@ export class CreatePostPopupComponent implements OnInit {
 
   post: Post = new Post();
 
-  communities : any[] = [];
+  communities! : Observable<any[]>;
 
   flairs : any[] = [];
 

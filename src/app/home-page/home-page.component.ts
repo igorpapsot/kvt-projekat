@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HomePageComponent implements OnInit {
 
-  posts : any[] = [];
+  posts!: Observable<any[]>;
 
   constructor(private postService : PostService, private modalService: NgbModal) { }
 
@@ -18,10 +19,6 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPosts();
-  }
-
-  ngAfterViewInit() {
     this.getPosts();
   }
   
