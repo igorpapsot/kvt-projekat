@@ -13,18 +13,7 @@ import { StoreService } from '../services/store.service';
 export class PostComponent implements OnInit {
 
   constructor(private postService : PostService, public store : StoreService) { }
-
-  // @Input()
-  // public title : string = "";
-
-  // @Input()
-  // public communityName : string = "";
-
-  // @Input()
-  // public text : string = "";
-
-  // @Input()
-  // public flairName : string = "";
+  
 
   @Input()
   public id : number = 0;
@@ -52,11 +41,6 @@ export class PostComponent implements OnInit {
   delete() {
     this.postService.delete(this.id);
   }
-
-  upDate() {
-
-  }
- 
 
 
 }

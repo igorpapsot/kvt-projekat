@@ -21,21 +21,18 @@ export class CreatePostPopupComponent implements OnInit {
   constructor(private modalService: NgbModal, private postService : PostService, private communityService : CommunityService, private flairService : FlairService) { }
 
   ngOnInit(): void {
-    this.getCommunites();
-    this.getFlairs();
+    this.get();
   }
 
   openLg(content : any) {
     this.modalService.open(content, { size: 'lg' });
   }
 
-  getCommunites() {
+  get() {
     this.communities = this.communityService.getCommunities();
-  }
-
-  getFlairs() {
     this.flairs = this.flairService.getFlairs();
   }
+
 
   createPost() {
     this.user.id = 1;
@@ -60,6 +57,6 @@ export class CreatePostPopupComponent implements OnInit {
 
   communities! : Observable<any[]>;
 
-  flairs : any[] = [];
+  flairs! : Observable<any[]>;
 
 }

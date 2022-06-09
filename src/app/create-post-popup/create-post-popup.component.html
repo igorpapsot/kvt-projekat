@@ -49,7 +49,7 @@
                   <select class="form-control" id="flair" required
                         [(ngModel)]="flair.id" name="flairId"
                         #flairId="ngModel">
-                        <option *ngFor="let flair of flairs; index as i; first as isFirst " [value] = "flair.id">{{flair.name}}</option>
+                        <option *ngFor="let flair of flairs | async; index as i; first as isFirst " [value] = "flair.id">{{flair.name}}</option>
                   </select>
                   <div [hidden]="flairId.valid || !flairId.touched"
                         class="alert alert-danger">

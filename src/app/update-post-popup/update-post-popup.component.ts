@@ -75,6 +75,6 @@ export class UpdatePostPopupComponent implements OnInit {
 
   communities! : Observable<any[]>;
 
-  flairs : any[] = [];
+  flairs! : Observable<any[]>;
 
 }

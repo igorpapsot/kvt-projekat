@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,8 +10,6 @@ export class FlairService {
 
   constructor(private http: HttpClient) { }
 
-  flairs : any[] = [];
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -18,11 +17,8 @@ export class FlairService {
     })
   };
 
-  getFlairs() : any[] {
-    this.http.get<any[]>(environment.ROOT_URL + "flairs").subscribe(data => {
-      this.flairs = data;
-    })
-    return this.flairs;
+  getFlairs() : Observable<any[]> {
+    return this.http.get<any[]>(environment.ROOT_URL + "flairs");
   }
 
 }
