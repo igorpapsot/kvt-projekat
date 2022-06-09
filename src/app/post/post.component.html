@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="row" *ngIf="store.loginStatus === true">
+            <div class="row" *ngIf="store.loginStatus === true && store.username == post.user.username">
                 <div class="col-md-2 offset-md-8">
                     <app-update-post-popup [post] = "post" [flair] = "flair" [community] = "community"></app-update-post-popup>
                 </div>

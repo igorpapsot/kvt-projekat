@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Jwt } from '../model/jwt';
 import { User } from '../model/user';
 import { StoreService } from '../services/store.service';
 import { UserService } from '../services/user.service';
+import jwt_decode, { JwtPayload } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +21,29 @@ export class LoginComponent implements OnInit {
   login() {
     this.userService.login(this.user)
     .subscribe(jwt => {
-      console.log(jwt)
+      console.log(jwt);
       sessionStorage.clear;
       sessionStorage.removeItem('token');
       sessionStorage.setItem('token', jwt.jwt);
+      this.storeSevice.setToken(this.getDecodedAccessToken(jwt.jwt));
     });
     this.storeSevice.setLoginStatus(true);
+    //console.log(this.jwt.jwt + "sasasasasasas");
+    // if(token != null) {
+    //   var token = 
+    // }
+    // console.log(token);
+    //this.storeSevice.setToken(token);
     this.router.navigateByUrl("/");
+  }
+
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      console.log(Error);
+      return null;
+    }
   }
 
   submitted = false;

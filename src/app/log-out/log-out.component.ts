@@ -9,14 +9,14 @@ import { StoreService } from '../services/store.service';
 })
 export class LogOutComponent implements OnInit {
 
-  constructor(public store : StoreService, private router : Router) { }
-
-  ngOnInit(): void {
+  constructor(public store : StoreService, private router : Router) { 
     this.logOut();
   }
 
+  ngOnInit(): void {
+  }
+
   logOut() {
-    console.log("asdads");
     sessionStorage.removeItem('token');
     this.store.loginStatus = false;
     this.router.navigateByUrl("/");

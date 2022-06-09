@@ -13,8 +13,22 @@ export class StoreService {
 
   public loginStatus = false;
 
+  public token : any;
+
+  public role : string = "";
+
+  public username : string = "";
+
   setLoginStatus(status: boolean) {
     this.loginStatus = status;
+  }
+
+  setToken(token: any) {
+    this.token = token;
+    this.role = token.role.authority;
+    this.username = token.sub;
+    console.log(this.username);
+    console.log(this.role);
   }
 
 }

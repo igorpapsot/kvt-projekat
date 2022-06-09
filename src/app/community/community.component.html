@@ -18,7 +18,7 @@
                 </div>
                 
             </div>
-            <div class="card-footer" *ngIf="store.loginStatus === true">
+            <div class="card-footer" *ngIf="store.role === 'ROLE_ADMIN' ">
                 <div class="row">
                     <div class="col-md-1">
                         <label for="reason">Reason</label>
