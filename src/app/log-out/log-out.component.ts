@@ -19,7 +19,7 @@ export class LogOutComponent implements OnInit {
     console.log("asdads");
     sessionStorage.removeItem('token');
     this.store.loginStatus = false;
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/");
   }
 
 }

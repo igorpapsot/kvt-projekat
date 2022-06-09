@@ -3,6 +3,7 @@ import { Community } from '../model/community';
 import { Flair } from '../model/flair';
 import { Post } from '../model/post';
 import { PostService } from '../services/post.service';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-post',
@@ -11,7 +12,7 @@ import { PostService } from '../services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  constructor(private postService : PostService) { }
+  constructor(private postService : PostService, public store : StoreService) { }
 
   // @Input()
   // public title : string = "";

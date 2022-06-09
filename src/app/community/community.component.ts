@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Community } from '../model/community';
 import { CommunityService } from '../services/community.service';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-community',
@@ -9,7 +10,7 @@ import { CommunityService } from '../services/community.service';
 })
 export class CommunityComponent implements OnInit {
 
-  constructor(private communityService : CommunityService) { }
+  constructor(private communityService : CommunityService, public store : StoreService) { }
 
   ngOnInit(): void {
   }

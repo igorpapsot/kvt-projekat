@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('token', jwt.jwt);
     });
     this.storeSevice.setLoginStatus(true);
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/");
   }
 
   submitted = false;

@@ -1,5 +1,5 @@
 <br/>
-<app-create-community-popup></app-create-community-popup>
+<app-create-community-popup *ngIf="store.loginStatus === true"></app-create-community-popup>
 <br/>
 <div *ngFor="let community of communities | async; index as i; first as isFirst">
     <app-community [community] = "community"></app-community>

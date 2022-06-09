@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommunityService } from '../services/community.service';
+import { StoreService } from '../services/store.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { CommunityService } from '../services/community.service';
 })
 export class CommunitiesComponent implements OnInit {
 
-  constructor(private communityService : CommunityService) { }
+  constructor(private communityService : CommunityService, public store : StoreService) { }
 
   communities!: Observable<any[]>;
 
