@@ -23,6 +23,17 @@ export class PostService {
     };
   }
 
+  httpOptionsReaction() {
+    return  {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        'Access-Control-Allow-Methods': 'GET,POST,PATCH,DELETE,PUT,OPTIONS',
+        'observe' : 'response' 
+      })
+    };
+  }
+
   getPosts() : Observable<any[]> {
     return this.http.get<any[]>(environment.ROOT_URL + "posts");
   }
@@ -40,18 +51,19 @@ export class PostService {
     )
   }
 
-  upVote(id : number){
-    this.http.post(environment.ROOT_URL +"posts/" + id +"/upVotes", null,  this.httpOptions())
-    .subscribe(() => this.status = 'Downvote successful');
+  upVote(id : number) : Observable<any>{
     console.log(this.status);
     console.log(environment.ROOT_URL + "posts/" + id +"/upVotes"); 
+    
+    return this.http.post(environment.ROOT_URL +"posts/" + id +"/upVotes", null,  this.httpOptions());
   }
 
   downVote(id : number) {
-    this.http.post(environment.ROOT_URL + "posts/" + id +"/downVotes", null, this.httpOptions())
-    .subscribe(() => this.status = 'Downvote successful');
     console.log(this.status);
     console.log(environment.ROOT_URL +"posts/" + id +"/downVotes");
+
+    return this.http.post(environment.ROOT_URL + "posts/" + id +"/downVotes", null, this.httpOptions());
+    
   }
 
   delete(id : number) {

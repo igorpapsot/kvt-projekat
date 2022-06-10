@@ -31,11 +31,31 @@ export class PostComponent implements OnInit {
   }
 
   upVote() {
-    this.postService.upVote(this.id);
+    const response = this.postService.upVote(this.id);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if (res.toString() == 'OK') {
+        this.post.karma += 1;
+      }
+      else {
+        this.post.karma -= 1;
+      }
+  });
   }
 
   downVote() {
-    this.postService.downVote(this.id);
+    const response = this.postService.downVote(this.id);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if (res.toString() == 'OK') {
+        this.post.karma += 1;
+      }
+      else {
+        this.post.karma -= 1;
+      }
+  });
   }
 
   delete() {
