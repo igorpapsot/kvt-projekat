@@ -16,6 +16,7 @@ import { CommunityComponent } from './community/community.component';
 import { UpdatePostPopupComponent } from './update-post-popup/update-post-popup.component';
 import { CreateCommunityPopupComponent } from './create-community-popup/create-community-popup.component';
 import { LogOutComponent } from './log-out/log-out.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LogOutComponent } from './log-out/log-out.component';
     CommunityComponent,
     UpdatePostPopupComponent,
     CreateCommunityPopupComponent,
-    LogOutComponent
+    LogOutComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

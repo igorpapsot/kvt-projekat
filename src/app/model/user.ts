@@ -5,6 +5,10 @@ export class User {
     password: string;
     email: string;
     avatar: string;
+    newPassword: string;
+    karma: number;
+    description : string;
+    displayedName: string;
 
     constructor() {
         

@@ -14,6 +14,7 @@ export class PostComponent implements OnInit {
 
   constructor(private postService : PostService, public store : StoreService) { }
   
+  deleted : boolean = false;
 
   @Input()
   public id : number = 0;
@@ -50,16 +51,17 @@ export class PostComponent implements OnInit {
     response.pipe().subscribe(res => {
       console.log('status: ' + res);
       if (res.toString() == 'OK') {
-        this.post.karma += 1;
+        this.post.karma -= 1;
       }
       else {
-        this.post.karma -= 1;
+        this.post.karma += 1;
       }
   });
   }
 
   delete() {
     this.postService.delete(this.id);
+    this.deleted = true;
   }
 
 
