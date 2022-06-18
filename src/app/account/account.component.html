@@ -1,7 +1,7 @@
 <br/>
 <div class="row">
     <div class="col-md-2 offset-md-2">
-        <h4>Karma: {{user.karma}}</h4>
+        <h4>Karma:</h4>
     </div>
 </div>
 <br/>
@@ -25,8 +25,15 @@
             </form>
         </div>
         <div class="col-md-3 align-bottom">
-            <button type="button" class="btn btn-success btn-block" [disabled]="!displayedNameForm.form.valid" (click)="changeUsername()">Change</button>
+            <button type="button" class="btn btn-success btn-block" [disabled]="!displayedNameForm.form.valid" (click)="changeDisplayName()">Change</button>
         </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 offset-md-2">
+            <h4 style="color: red;">{{statusDisplayName}}</h4>
+        </div>      
     </div>
 
     <div class="row">
@@ -49,6 +56,13 @@
         <div class="col-md-3 align-bottom">
             <button type="button" class="btn btn-success btn-block" [disabled]="!descriptionForm.form.valid" (click)="changeDescription()">Change</button>
         </div>
+        
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2 offset-md-2">
+            <h4 style="color: red;">{{statusDescription}}</h4>
+        </div>        
     </div>
 </div>
 
@@ -107,7 +121,7 @@
               </div>
         </div>  
     </div>   
-    <h4 style="color: red;">{{status}}</h4>
+    <h4 style="color: red;">{{statusPassword}}</h4>
     <div class="row">
         <div class="col-md-3 offset-md-4">
             <button type="button" class="btn btn-success btn-block" [disabled]="!passwordForm.form.valid" (click)="changePassword()">Change</button>

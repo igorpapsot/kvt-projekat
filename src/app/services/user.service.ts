@@ -34,7 +34,18 @@ export class UserService {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
-        "Access-Control-Allow-Methods": 'GET,POST,PATCH,DELETE,PUT,OPTIONS'
+        'Access-Control-Allow-Methods': 'GET,POST,DELETE,PUT'
+      })
+    };
+  }
+
+  
+  optionsChange() {
+    return  {
+      headers: new HttpHeaders({
+        'Content-Type':  'text/plain',
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        'Access-Control-Allow-Methods': 'GET,POST,DELETE,PUT'
       })
     };
   }
@@ -64,5 +75,15 @@ export class UserService {
     return this.http.put(environment.ROOT_URL +"users/changePassword", body,  this.options());
   }
 
+  changeDisplayName(displayName : string) :  Observable<any> {
+    console.log(displayName);
+    return this.http.put(environment.ROOT_URL +"users/displayName", displayName,  this.optionsChange());
+  }
+
+  changeDescription(description : string) :  Observable<any> {
+    console.log(description);
+    return this.http.put(environment.ROOT_URL +"users/description", description,  this.optionsChange());
+  }
+  
   
 }

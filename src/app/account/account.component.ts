@@ -19,12 +19,9 @@ export class AccountComponent implements OnInit {
 
   user : User = new User();
   changePasswordDTO : ChangePasswordDTO = new ChangePasswordDTO();
-  public status : string = "";
-
-
-  changeUsername() {
-
-  }
+  public statusPassword : string = "";
+  public statusDisplayName: string = "";
+  public statusDescription : string = "";
 
   changePassword() {
     const response = this.userService.changePassword(this.changePasswordDTO);
@@ -32,10 +29,10 @@ export class AccountComponent implements OnInit {
     response.pipe().subscribe(res => {
       console.log('status: ' + res);
       if(res.toString() == 'ACCEPTED') {
-        this.status = "Password changed succesfully"
+        this.statusPassword = "Password changed succesfully"
       }
       else if (res.toString() == 'NOT_ACCEPTABLE') {
-        this.status = "Password isnt correct"
+        this.statusPassword = "Password isnt correct"
       }
       else {
         
@@ -43,12 +40,38 @@ export class AccountComponent implements OnInit {
     });
   }
 
-  changeEmail() {
-    
+  changeDescription() {
+    const response = this.userService.changeDescription(this.user.description);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if(res.toString() == 'ACCEPTED') {
+        this.statusDescription = 'Description changed succesfully';
+      }
+      else if (res.toString() == 'NOT_ACCEPTABLE') {
+        this.statusDescription = 'Description not acceptable';
+      }
+      else {
+        
+      }
+    });
   }
 
-  changeDescription() {
-    
+  changeDisplayName() {
+    const response = this.userService.changeDisplayName(this.user.displayedName);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if(res.toString() == 'ACCEPTED') {
+        this.statusDisplayName = 'Display name changed succesfully';
+      }
+      else if (res.toString() == 'NOT_ACCEPTABLE') {
+        this.statusDisplayName = 'Display name  not acceptable'
+      }
+      else {
+        
+      }
+    });
   }
 
 }
