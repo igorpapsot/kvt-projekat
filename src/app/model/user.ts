@@ -6,6 +6,7 @@ export class User {
     email: string;
     avatar: string;
     newPassword: string;
+    repeatPassword: string;
     karma: number;
     description : string;
     displayedName: string;

@@ -54,17 +54,18 @@
 
 <br/>
 <br/>
+
 <form #passwordForm="ngForm" >
     <div class="row">
         <div class="col-md-2 offset-md-2">
-            <h4>Password:</h4>
+            <h4>Old Password:</h4>
         </div>
         <div class="col-md-3">
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" required
-                          [(ngModel)]="user.password" name="password"
-                          #password="ngModel">
-                    <div [hidden]="password.valid || !password.touched"
+                    <input type="password" class="form-control" id="oldPassword" required
+                          [(ngModel)]="changePasswordDTO.password" name="oldPassword"
+                          #oldPassword="ngModel">
+                    <div [hidden]="oldPassword.valid || !oldPassword.touched"
                           class="alert alert-danger">
                           Password is required
                     </div>       
@@ -80,18 +81,40 @@
         <div class="col-md-3">
                 <div class="form-group">
                     <input type="password" class="form-control" id="newPassword" required
-                          [(ngModel)]="user.newPassword" name="newPassword"
+                          [(ngModel)]="changePasswordDTO.newPassword" name="newPassword"
                           #newPassword="ngModel">
-                    <div [hidden]="newPassword.value == password.value || !password.touched"
+                    <div [hidden]="newPassword.valid || !newPassword.touched"
+                          class="alert alert-danger">
+                          Password is required
+                    </div>       
+                </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 offset-md-2">
+            <h4>Repeat new Password:</h4>
+        </div>
+        <div class="col-md-3">
+                <div class="form-group">
+                    <input type="password" class="form-control" id="repeatPassword" required
+                          [(ngModel)]="changePasswordDTO.repeatPassword" name="repeatPassword"
+                          #repeatPassword="ngModel">
+                    <div [hidden]="newPassword.value == repeatPassword.value || !repeatPassword.touched" 
                           class="alert alert-danger">
                           Password does not match
                     </div>       
               </div>
-        </div>
-        <div class="col-md-3 align-bottom">
+        </div>  
+    </div>   
+    <h4 style="color: red;">{{status}}</h4>
+    <div class="row">
+        <div class="col-md-3 offset-md-4">
             <button type="button" class="btn btn-success btn-block" [disabled]="!passwordForm.form.valid" (click)="changePassword()">Change</button>
         </div>
     </div>
 
+
 </form>
+
 

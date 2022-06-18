@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user';
+import { ChangePasswordDTO } from '../model/changePasswordDTO';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-account',
@@ -8,7 +10,7 @@ import { User } from '../model/user';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() {
+  constructor(private userService : UserService) {
     this.user.karma = 1;
    }
 
@@ -16,6 +18,8 @@ export class AccountComponent implements OnInit {
   }
 
   user : User = new User();
+  changePasswordDTO : ChangePasswordDTO = new ChangePasswordDTO();
+  public status : string = "";
 
 
   changeUsername() {
@@ -23,7 +27,20 @@ export class AccountComponent implements OnInit {
   }
 
   changePassword() {
-    
+    const response = this.userService.changePassword(this.changePasswordDTO);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if(res.toString() == 'ACCEPTED') {
+        this.status = "Password changed succesfully"
+      }
+      else if (res.toString() == 'NOT_ACCEPTABLE') {
+        this.status = "Password isnt correct"
+      }
+      else {
+        
+      }
+    });
   }
 
   changeEmail() {
