@@ -20,8 +20,8 @@ export class CommentService {
     };
   }
 
-  getComments() : Observable<any[]> {
-    return this.http.get<any[]>(environment.ROOT_URL + "comments");
+  getComments(id : number) : Observable<any[]> {
+    return this.http.get<any[]>(environment.ROOT_URL + "posts/" + id +  "/comments");
   }
 
 }

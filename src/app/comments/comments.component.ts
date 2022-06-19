@@ -22,7 +22,7 @@ export class CommentsComponent implements OnInit {
   constructor(private commentService : CommentService, public store : StoreService) { }
 
   getComments() {
-    this.comments = this.commentService.getComments();
+    this.comments = this.commentService.getComments(this.post.id);
   }
 
   ngOnInit(): void {
