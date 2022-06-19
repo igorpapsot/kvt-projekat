@@ -1,1 +1,21 @@
-<p>comments works!</p>
+<div  *ngIf="store.loginStatus === true"  class="row">
+    <form #commentForm="ngForm" class="col">
+        <div class="form-group" >
+            <input type="text" class="form-control" id="comment" required
+            [(ngModel)]="comment.text" name="comment" placeholder="Text"
+            #text="ngModel">
+            <div [hidden]="text.valid || !text.touched"
+                    class="alert alert-danger">
+                    Text is required
+            </div>
+        </div>
+    </form>
+    <button type="submit" class="btn btn-success btn-sm" style="margin-bottom: 15px;" [disabled]="!commentForm.form.valid" (click)="postComment()">Comment</button>
+</div>
+
+<div class="row">
+    <div *ngFor="let comment of comments | async; index as i; first as isFirst">
+        <app-comment [comment] = "comment"></app-comment>
+    </div>
+</div>
+
