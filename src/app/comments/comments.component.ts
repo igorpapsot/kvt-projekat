@@ -30,6 +30,19 @@ export class CommentsComponent implements OnInit {
   }
 
   postComment() {
-
+    const response = this.commentService.postComment(this.post.id, this.comment);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if(res.toString() == 'ACCEPTED') {
+        console.log("Password changed succesfully");
+      }
+      else if (res.toString() == 'NOT_ACCEPTABLE') {
+        console.log("Password isnt correct");
+      }
+      else {
+        
+      }
+    });
   }
 } 
