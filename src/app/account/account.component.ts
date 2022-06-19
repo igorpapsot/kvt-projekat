@@ -11,7 +11,7 @@ import { UserService } from '../services/user.service';
 export class AccountComponent implements OnInit {
 
   constructor(private userService : UserService) {
-    this.user.karma = 1;
+    this.account();
    }
 
   ngOnInit(): void {
@@ -22,6 +22,15 @@ export class AccountComponent implements OnInit {
   public statusPassword : string = "";
   public statusDisplayName: string = "";
   public statusDescription : string = "";
+
+  account() {
+    const response = this.userService.account();
+    console.log(response);
+    response.pipe().subscribe(res => {
+      this.user = res;
+      this.user.karma = res.karma;
+    })
+  }
 
   changePassword() {
     const response = this.userService.changePassword(this.changePasswordDTO);

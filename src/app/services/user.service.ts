@@ -85,5 +85,8 @@ export class UserService {
     return this.http.put(environment.ROOT_URL +"users/description", description,  this.optionsChange());
   }
   
+  account() : Observable<User>{
+    return this.http.get<User>(environment.ROOT_URL + "users/account", this.options())
+  }
   
 }
