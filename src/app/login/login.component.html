@@ -41,6 +41,10 @@
             <button type="button" class="btn btn-success btn-block" [disabled]="!userForm.form.valid" (click)="login()">Login</button>
           </div>
         </div>
+
+        <div class="row">
+          {{loginStatus}}
+        </div>
             
       </form>
     </div>

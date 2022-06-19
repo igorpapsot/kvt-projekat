@@ -26,15 +26,20 @@ export class LoginComponent implements OnInit {
       sessionStorage.removeItem('token');
       sessionStorage.setItem('token', jwt.jwt);
       this.storeSevice.setToken(this.getDecodedAccessToken(jwt.jwt));
-    });
-    this.storeSevice.setLoginStatus(true);
+
+      this.storeSevice.setLoginStatus(true);
+      this.router.navigateByUrl("/");
+    },
+    err => this.loginStatus = "Wrong credentials"
+    );
+    
     //console.log(this.jwt.jwt + "sasasasasasas");
     // if(token != null) {
     //   var token = 
     // }
     // console.log(token);
     //this.storeSevice.setToken(token);
-    this.router.navigateByUrl("/");
+    
   }
 
   getDecodedAccessToken(token: string): any {
@@ -47,6 +52,8 @@ export class LoginComponent implements OnInit {
   }
 
   submitted = false;
+
+  loginStatus : string = "";
 
   jwt : Jwt = new Jwt();
 
