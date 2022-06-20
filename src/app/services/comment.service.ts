@@ -22,6 +22,16 @@ export class CommentService {
     };
   }
 
+  optionsPut() {
+    return  {
+      headers: new HttpHeaders({
+        'Content-Type':  'text/plain',
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        'Access-Control-Allow-Methods': 'GET,POST,DELETE,PUT'
+      })
+    };
+  }
+
   getComments(id : number) : Observable<any[]> {
     return this.http.get<any[]>(environment.ROOT_URL + "posts/" + id +  "/comments");
   }
@@ -38,8 +48,8 @@ export class CommentService {
     return this.http.delete(environment.ROOT_URL + "posts/" + postId + "/comments/" + commentId, this.options());
   }
 
-  editComment() {
-
+  editComment(postId : number, commentId : number, text : string) {
+    return this.http.put(environment.ROOT_URL + "posts/" + postId + "/comments/" + commentId, text, this.optionsPut());
   }
 
 }

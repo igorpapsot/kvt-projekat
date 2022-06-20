@@ -16,6 +16,8 @@ export class PostComponent implements OnInit {
   
   deleted : boolean = false;
 
+  statusComments : boolean = true;
+
   @Input()
   public id : number = 0;
 
@@ -37,10 +39,13 @@ export class PostComponent implements OnInit {
     response.pipe().subscribe(res => {
       console.log('status: ' + res);
       if (res.toString() == 'OK') {
-        this.post.karma += 1;
+        this.post.karma = this.post.karma +1;
+      }
+      else if (res.toString() == 'ACCEPTED'){
+        this.post.karma = this.post.karma - 1;
       }
       else {
-        this.post.karma -= 1;
+
       }
   });
   }
@@ -51,10 +56,13 @@ export class PostComponent implements OnInit {
     response.pipe().subscribe(res => {
       console.log('status: ' + res);
       if (res.toString() == 'OK') {
-        this.post.karma -= 1;
+        this.post.karma = this.post.karma - 1;
+      }
+      else if (res.toString() == 'ACCEPTED'){
+        this.post.karma = this.post.karma + 1;
       }
       else {
-        this.post.karma += 1;
+
       }
   });
   }
@@ -62,6 +70,10 @@ export class PostComponent implements OnInit {
   delete() {
     this.postService.delete(this.id);
     this.deleted = true;
+  }
+
+  showComments() {
+    this.statusComments = !this.statusComments;
   }
 
 

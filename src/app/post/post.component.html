@@ -43,7 +43,8 @@
             </div>
 
             <div class="card-footer">
-                <app-comments [post] = "post"></app-comments>
+                <button type="submit" class="btn btn-secondary btn-sm" style="margin-bottom: 15px;" (click)="showComments()">Comments</button>
+                <app-comments [post] = "post" [hidden]="statusComments"></app-comments>
             </div>
             
         </div>
