@@ -6,6 +6,10 @@
     <div class="card-body">
       <p class="card-text">{{comment.text}}</p>
     </div>
+    <div class="card-footer-sm" *ngIf="store.username === comment.user.username"> 
+      <button type="submit" class="btn btn-danger btn-sm" style="margin: 5px;" (click)="delete()">Delete</button>
+      <button type="submit" class="btn btn-success btn-sm" style="margin: 5px;" (click)="edit()">Edit</button>
+    </div>
 </div>
 <br/>
 

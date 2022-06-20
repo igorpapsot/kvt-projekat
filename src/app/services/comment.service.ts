@@ -32,4 +32,14 @@ export class CommentService {
     return this.http.post(environment.ROOT_URL + "posts/" + postId +  "/comments", body, this.options());
   }
 
+  deleteComment(postId : number, commentId : number) : Observable<any>{
+    console.log(environment.ROOT_URL + "posts/" + postId + "/comments/" + commentId);
+    console.log(this.options());
+    return this.http.delete(environment.ROOT_URL + "posts/" + postId + "/comments/" + commentId, this.options());
+  }
+
+  editComment() {
+
+  }
+
 }

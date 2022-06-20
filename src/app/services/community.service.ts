@@ -22,6 +22,16 @@ export class CommunityService {
     };
   }
 
+  optionsSuspend() {
+    return  {
+      headers: new HttpHeaders({
+        'Content-Type':  'text/plain',
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        'Access-Control-Allow-Methods': 'GET,POST,DELETE,PUT'
+      })
+    };
+  }
+
   communities! : Observable<any[]>;
 
   getCommunities() : Observable<any[]> {
@@ -35,11 +45,10 @@ export class CommunityService {
   }
 
   suspendCommunity(id : number, reason : String) {
-    const body = { 'suspendedReason' : ' + reason + '};
-    this.http.put<any>(environment.ROOT_URL + "communities/" + id + "/suspend", body, this.httpOptions())
+    console.log(reason);
+    this.http.put<any>(environment.ROOT_URL + "communities/" + id + "/suspend", reason, this.optionsSuspend())
     .subscribe(() => this.suspendStatus = 'Delete successful');
     console.log(this.suspendStatus);
-    console.log(body);
   }
 
   post(community : Community) : Observable<Community>{
