@@ -15,18 +15,20 @@ export class CommentComponent implements OnInit {
 
   editStatus : boolean = true;
 
+  deleted : boolean = false;
+
   constructor(public store : StoreService, private commentService : CommentService) { }
 
   ngOnInit(): void {
   }
 
   delete() {
-    //this.commentService.deleteComment(this.comment.post.id, this.comment.id);
     const response = this.commentService.deleteComment(this.comment.post.id, this.comment.id);
     response.pipe().subscribe(res => {
       console.log('status: ' + res);
       if (res.toString() == 'OK') {
        console.log(res);
+       this.deleted = true;
       }
       else {
         console.log(res);
@@ -48,6 +50,38 @@ export class CommentComponent implements OnInit {
       }
       else {
         console.log(res);
+      }
+    })
+  }
+
+  upVote() {
+    const response = this.commentService.upVote(this.comment.post.id, this.comment.id);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if (res.toString() == 'OK') {
+       console.log(res);
+       this.comment.karma = this.comment.karma + 1;
+      }
+      else {
+        console.log(res);
+        this.comment.karma = this.comment.karma - 1;
+      }
+    })
+  }
+
+  downVote() {
+    const response = this.commentService.downVote(this.comment.post.id, this.comment.id);
+    console.log(response);
+    response.pipe().subscribe(res => {
+      console.log('status: ' + res);
+      if (res.toString() == 'OK') {
+       console.log(res);
+       this.comment.karma = this.comment.karma - 1;
+      }
+      else {
+        console.log(res);
+        this.comment.karma = this.comment.karma + 1;
       }
     })
   }

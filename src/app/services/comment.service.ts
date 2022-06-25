@@ -52,4 +52,16 @@ export class CommentService {
     return this.http.put(environment.ROOT_URL + "posts/" + postId + "/comments/" + commentId, text, this.optionsPut());
   }
 
+  upVote(id : number, commentId : number) : Observable<any>{
+    console.log(environment.ROOT_URL + "posts/" + id + "/comments/" + commentId+ "/upVotes"); 
+    
+    return this.http.post(environment.ROOT_URL + "posts/" + id + "/comments/" + commentId+ "/upVotes", null, this.options());
+  }
+
+  downVote(id : number, commentId : number) : Observable<any> {
+    console.log(environment.ROOT_URL + "posts/" + id + "/comments/" + commentId+ "/downVotes"); 
+    
+    return this.http.post(environment.ROOT_URL + "posts/" + id + "/comments/" + commentId+ "/downVotes", null,  this.options());
+  }
+
 }

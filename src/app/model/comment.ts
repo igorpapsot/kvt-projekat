@@ -8,6 +8,7 @@ export class Comment {
     isDeleted : boolean;
     user : User;
     post : Post;
+    karma : number;
 
     constructor() {       
     }
