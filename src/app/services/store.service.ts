@@ -12,7 +12,7 @@ export class StoreService {
       this.token = this.getDecodedAccessToken(t);
       this.loginStatus = true;
       this.role = this.token.role.authority;
-      this.username = this.token.sub;  
+      this.username = this.token.sub;
     }
   }
 

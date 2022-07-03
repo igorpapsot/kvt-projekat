@@ -67,7 +67,7 @@ export class AccountComponent implements OnInit {
   }
 
   changeDisplayName() {
-    const response = this.userService.changeDisplayName(this.user.displayedName);
+    const response = this.userService.changeDisplayName(this.user.displayName);
     console.log(response);
     response.pipe().subscribe(res => {
       console.log('status: ' + res);

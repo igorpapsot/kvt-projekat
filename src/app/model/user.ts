@@ -9,7 +9,7 @@ export class User {
     repeatPassword: string;
     karma: number;
     description : string;
-    displayedName: string;
+    displayName: string;
 
     constructor() {
         

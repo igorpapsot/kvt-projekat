@@ -8,6 +8,7 @@ import { User } from '../model/user';
 import { CommunityService } from '../services/community.service';
 import { FlairService } from '../services/flair.service';
 import { PostService } from '../services/post.service';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-create-post-popup',
@@ -18,7 +19,7 @@ export class CreatePostPopupComponent implements OnInit {
 
   closeResult!: string;
 
-  constructor(private modalService: NgbModal, private postService : PostService, private communityService : CommunityService, private flairService : FlairService) { }
+  constructor(private modalService: NgbModal, private postService : PostService, private communityService : CommunityService, private flairService : FlairService, private storeService : StoreService) { }
 
   ngOnInit(): void {
     this.get();
@@ -35,7 +36,7 @@ export class CreatePostPopupComponent implements OnInit {
 
 
   createPost() {
-    this.user.id = 1;
+    this.user.username = this.storeService.username;
     this.post.user = this.user;
     this.post.community = this.community;
     this.post.flair = this.flair;

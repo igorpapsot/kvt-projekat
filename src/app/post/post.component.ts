@@ -12,7 +12,8 @@ import { StoreService } from '../services/store.service';
 })
 export class PostComponent implements OnInit {
 
-  constructor(private postService : PostService, public store : StoreService) { }
+  constructor(private postService : PostService, public store : StoreService) { 
+  }
   
   deleted : boolean = false;
 
