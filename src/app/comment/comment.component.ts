@@ -13,6 +13,8 @@ export class CommentComponent implements OnInit {
   @Input()
   comment : Comment = new Comment();
 
+  name : string = "";
+
   editStatus : boolean = true;
 
   deleted : boolean = false;
@@ -20,6 +22,12 @@ export class CommentComponent implements OnInit {
   constructor(public store : StoreService, private commentService : CommentService) { }
 
   ngOnInit(): void {
+    if(this.comment.user.displayName == null) {
+      this.name = this.comment.user.username;
+    }
+    else {
+      this.name = this.comment.user.displayName;
+    }
   }
 
   delete() {

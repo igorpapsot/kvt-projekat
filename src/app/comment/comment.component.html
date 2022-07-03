@@ -1,7 +1,7 @@
 <div class="card" [hidden]="deleted">
     <div class="card-header-sm row">
       <div class="col-9">
-        &nbsp;&nbsp;{{comment.user.username}}
+        &nbsp;&nbsp;{{name}}
       </div>     
       <div class="col" *ngIf="store.username === comment.user.username">
         <button type="submit" class="btn btn-danger btn-sm" style="margin: 5px;" (click)="delete()">Delete</button>
